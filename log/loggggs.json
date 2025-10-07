@@ -1,5 +1,5 @@
 [
-  {
+  {/* Event 1 */
     "Name": "Data Exfiltration - Internal Account",
     "EventID": "Multi",
     "EventName": "內部人員疑似未授權之資料外洩",
