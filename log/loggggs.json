@@ -606,6 +606,12 @@
         "Dst_Ip": "198.51.100.22",
         "LogonType": ""
       }
+    ],
+    "AttackStaff": [
+      {
+        "Data Table": "DT_Staff",
+        "Row Name": "andy"
+      }
     ]
   },
   {
@@ -1250,6 +1256,12 @@
         "Src_Ip": "10.10.5.55",
         "Dst_Ip": "10.10.5.12",
         "LogonType": ""
+      }
+    ],
+    "AttackStaff": [
+      {
+        "Data Table": "DT_Staff",
+        "Row Name": "hank"
       }
     ]
   },
@@ -2055,6 +2067,12 @@
         "LogonType": "",
         "ObjectName": "C:\\Windows\\Temp\\lsass.dmp",
         "AccessMask": "0x2"
+      }
+    ],
+    "AttackStaff": [
+      {
+        "Data Table": "DT_Staff",
+        "Row Name": "alice"
       }
     ]
   }
