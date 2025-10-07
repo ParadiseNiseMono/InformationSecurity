@@ -607,12 +607,10 @@
         "LogonType": ""
       }
     ],
-    "AttackStaff": [
-      {
-        "Data Table": "DT_Staff",
-        "Row Name": "andy"
-      }
-    ]
+    "AttackStaff": {
+      "DataTable": "/Script/Engine.DataTable'/Game/Company/Staff/DT_Staff.DT_Staff'",
+      "RowName": "andy"
+    }
   },
   {
     "Name": "Remote Service Control Manager Handle Sweep",
@@ -1258,12 +1256,10 @@
         "LogonType": ""
       }
     ],
-    "AttackStaff": [
-      {
-        "Data Table": "DT_Staff",
-        "Row Name": "hank"
-      }
-    ]
+    "AttackStaff": {
+      "DataTable": "/Script/Engine.DataTable'/Game/Company/Staff/DT_Staff.DT_Staff'",
+      "RowName": "hank"
+    }
   },
   {
     "Name": "LSASS 記憶體讀取疑似事件集",
@@ -2069,11 +2065,9 @@
         "AccessMask": "0x2"
       }
     ],
-    "AttackStaff": [
-      {
-        "Data Table": "DT_Staff",
-        "Row Name": "alice"
-      }
-    ]
+    "AttackStaff": {
+      "DataTable": "/Script/Engine.DataTable'/Game/Company/Staff/DT_Staff.DT_Staff'",
+      "RowName": "alice"
+    }
   }
 ]
