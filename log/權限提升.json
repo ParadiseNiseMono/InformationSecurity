@@ -1,0 +1,241 @@
+[
+  {
+    "Name": "權限提升",
+    "EventID": "Multi",
+    "EventName": "內部帳號疑似利用弱權限服務進行本機權限提升",
+    "Description": "攻擊者取得公司內部跳板，從該主機遠端登入一般使用者工作階段。",
+    "SourceIP": {
+      "IP": "192.168.0.1",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Internal",
+      "Department": "IT"
+    },
+    "EventType": "Hacked",
+    "Stage": 1,
+    "SolveType": "ChangeCharacter",
+    "SourceIPs": [
+      {
+        "IP": "192.168.0.1",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Internal",
+        "Department": "IT"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-11-19T11:00:01",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4624",
+        "LogonType": 10,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.2",
+        "Channel": "Security",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:04",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\System32\\winlogon.exe",
+        "CommandLine": "cmd.exe /c whoami",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:07",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\whoami.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "whoami /groups",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:10",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\net.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "net localgroup administrators",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:14",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "powershell -nop -c \"Get-Service | Where-Object {$_.Name -like '*Vuln*'}\"",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:18",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\sc.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "sc qc VulnService",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:22",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\icacls.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "icacls \"C:\\Program Files\\VulnApp\"",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:26",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4697",
+        "Service_Name": "VulnHelper",
+        "Service_FileName": "C:\\ProgramData\\helper.exe",
+        "Service_Type": "user mode service",
+        "Service_StartType": "auto start",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:29",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "cmd.exe /c copy C:\\Users\\alice\\Downloads\\helper.exe C:\\ProgramData\\helper.exe /Y",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:33",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\sc.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "sc start VulnHelper",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:37",
+        "HostName": "WS-03",
+        "User": "NT AUTHORITY\\SYSTEM",
+        "EventID": "4624",
+        "LogonType": 5,
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.2",
+        "Channel": "Security",
+        "LogonProcess": "Advapi"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:39",
+        "HostName": "WS-03",
+        "User": "NT AUTHORITY\\SYSTEM",
+        "EventID": "4672",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.2",
+        "SpecialPrivilegesAssigned": [
+          "SeDebugPrivilege",
+          "SeTcbPrivilege",
+          "SeBackupPrivilege",
+          "SeRestorePrivilege"
+        ]
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:42",
+        "HostName": "WS-03",
+        "User": "NT AUTHORITY\\SYSTEM",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\System32\\services.exe",
+        "CommandLine": "cmd.exe /c whoami /groups",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T10:59:55",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:02",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\"C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE\"",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T11:00:06",
+        "HostName": "WS-03",
+        "User": "alice",
+        "EventID": "4688",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" https://intranet.company.local",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      }
+    ]
+  }
+]

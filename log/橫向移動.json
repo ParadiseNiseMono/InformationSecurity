@@ -1,0 +1,310 @@
+[
+  {
+    "Name": "橫向移動",
+    "EventID": "Multi",
+    "EventName": "內部帳號疑似遭外部攻擊者利用SMB進行橫向移動",
+    "Description": "攻擊者取得it-admin憑證後，從WS-01發起多次SMB網路登入嘗試至多台主機",
+    "SourceIP": {
+      "IP": "192.168.0.1",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Inbound",
+      "Department": "Production"
+    },
+    "EventType": "Hacked",
+    "Stage": 1,
+    "SolveType": "ChangeCharacter",
+    "SourceIPs": [
+      {
+        "IP": "192.168.0.1",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Internal",
+        "Department": "IT"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-11-19T09:00:01",
+        "HostName": "WS-03",
+        "User": "it-admin",
+        "EventID": "4625",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.2",
+        "Channel": "Security"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:03",
+        "HostName": "WS-03",
+        "User": "it-admin",
+        "EventID": "4625",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.2",
+        "Channel": "Security"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:06",
+        "HostName": "WS-03",
+        "User": "it-admin",
+        "EventID": "4625",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.2",
+        "Channel": "Security"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:10",
+        "HostName": "WS-03",
+        "User": "it-admin",
+        "EventID": "4625",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.2",
+        "Channel": "Security"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:12",
+        "HostName": "WS-03",
+        "User": "it-admin",
+        "EventID": "4624",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.2",
+        "Channel": "Security",
+        "LogonProcess": "NtLmSsp"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:18",
+        "HostName": "WS-03",
+        "User": "it-admin",
+        "EventID": "4648",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "Channel": "Security",
+        "Target_Server": "WS-05",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.3"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:22",
+        "HostName": "WS-05",
+        "User": "it-admin",
+        "EventID": "4625",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.3",
+        "Channel": "Security"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:25",
+        "HostName": "WS-05",
+        "User": "it-admin",
+        "EventID": "4624",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.3",
+        "Channel": "Security",
+        "LogonProcess": "NtLmSsp"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:30",
+        "HostName": "WS-05",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\System32\\winlogon.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:33",
+        "HostName": "WS-05",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\whoami.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:36",
+        "HostName": "WS-05",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\net.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "net view",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:40",
+        "HostName": "WS-05",
+        "User": "it-admin",
+        "EventID": "4648",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Target_Server": "WS-04",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.4"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:42",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4625",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.4",
+        "Channel": "Security"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:45",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4624",
+        "LogonType": 3,
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.4",
+        "Channel": "Security",
+        "LogonProcess": "NtLmSsp"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:49",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\System32\\winlogon.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:52",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\systeminfo.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:55",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\net.exe",
+        "CommandLine": "net group administrators",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:00:58",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\ipconfig.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:01:03",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\whoami.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:01:07",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\hostname.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:01:10",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\netstat.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:01:14",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\tasklist.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:01:18",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\powershell.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "powershell -nop -exec bypass",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:01:22",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Process_Image": "C:\\Windows\\System32\\certutil.exe",
+        "Parent_Image": "C:\\Windows\\System32\\cmd.exe",
+        "CommandLine": "certutil -urlcache -split -f",
+        "Channel": "Security",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      }
+    ]
+  }
+]
