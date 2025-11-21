@@ -1,0 +1,343 @@
+[
+  {
+    "Name": "文書／Email／Chrome 內網",
+    "EventID": "Multi",
+    "EventName": "",
+    "Description": "",
+    "SourceIP": {
+      "IP": "192.168.0.1",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Internal",
+      "Department": "IT"
+    },
+    "EventType": "Hacked",
+    "Stage": 1,
+    "SolveType": "ChangeCharacter",
+    "SourceIPs": [
+      {
+        "IP": "192.168.0.1",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Internal",
+        "Department": "IT"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-11-19T09:15:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.2",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:15:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:16:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:16:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:17:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:17:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://intranet.company.local",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:18:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\notepad.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "notepad.exe C:\\Users\\alice\\Documents\\todo.txt",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:18:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.2",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:19:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:19:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:20:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:20:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:21:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://intranet.company.local",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:21:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\notepad.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "notepad.exe C:\\Users\\alice\\Documents\\todo.txt",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:22:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.2",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:22:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:23:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:23:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:24:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:24:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://intranet.company.local",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:25:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\notepad.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "notepad.exe C:\\Users\\alice\\Documents\\todo.txt",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:25:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.2",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:26:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:26:30",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T09:27:00",
+        "HostName": "WS-02",
+        "User": "alice",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE\\\"",
+        "Src_Ip": "192.168.0.2",
+        "Dst_Ip": "192.168.0.5"
+      }
+    ]
+  }
+]

@@ -1,0 +1,343 @@
+[
+  {
+    "Name": "Task Manager／Event Viewer／PowerShell 檢查",
+    "EventID": "Multi",
+    "EventName": "",
+    "Description": "",
+    "SourceIP": {
+      "IP": "192.168.0.1",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Internal",
+      "Department": "IT"
+    },
+    "EventType": "Hacked",
+    "Stage": 1,
+    "SolveType": "ChangeCharacter",
+    "SourceIPs": [
+      {
+        "IP": "192.168.0.1",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Internal",
+        "Department": "IT"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-11-19T16:40:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.4",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:40:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:41:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\Taskmgr.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "taskmgr.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:42:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\mmc.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "mmc.exe eventvwr.msc",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:42:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "powershell.exe Get-EventLog -LogName System -Newest 20",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:43:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\notepad.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "notepad.exe C:\\Logs\\system_check.txt",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:44:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "cmd.exe /c ipconfig /all",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:44:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.4",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:45:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:46:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\Taskmgr.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "taskmgr.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:46:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\mmc.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "mmc.exe eventvwr.msc",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:47:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "powershell.exe Get-EventLog -LogName System -Newest 20",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:48:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\notepad.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "notepad.exe C:\\Logs\\system_check.txt",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:48:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "cmd.exe /c ipconfig /all",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:49:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.4",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:50:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:50:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\Taskmgr.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "taskmgr.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:51:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\mmc.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "mmc.exe eventvwr.msc",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:52:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "powershell.exe Get-EventLog -LogName System -Newest 20",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:52:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\notepad.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "notepad.exe C:\\Logs\\system_check.txt",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:53:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\cmd.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "cmd.exe /c ipconfig /all",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:54:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.4",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:54:40",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:55:20",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\Taskmgr.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "taskmgr.exe",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T16:56:00",
+        "HostName": "WS-04",
+        "User": "it-admin",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\mmc.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "mmc.exe eventvwr.msc",
+        "Src_Ip": "192.168.0.4",
+        "Dst_Ip": "192.168.0.5"
+      }
+    ]
+  }
+]

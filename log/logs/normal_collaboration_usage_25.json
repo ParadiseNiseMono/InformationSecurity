@@ -1,0 +1,343 @@
+[
+  {
+    "Name": "Chrome 上網＋Teams＋OneDrive 協作",
+    "EventID": "Multi",
+    "EventName": "",
+    "Description": "",
+    "SourceIP": {
+      "IP": "192.168.0.1",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Internal",
+      "Department": "IT"
+    },
+    "EventType": "Hacked",
+    "Stage": 1,
+    "SolveType": "ChangeCharacter",
+    "SourceIPs": [
+      {
+        "IP": "192.168.0.1",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Internal",
+        "Department": "IT"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-11-19T14:02:00",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.3",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:02:35",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:03:10",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://www.google.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:03:45",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://teams.microsoft.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:04:20",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Users\\john\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "Teams.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:04:55",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "OneDrive.exe /background",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:05:30",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\mspaint.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "mspaint.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:06:05",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.3",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:06:40",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:07:15",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://www.google.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:07:50",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://teams.microsoft.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:08:25",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Users\\john\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "Teams.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:09:00",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "OneDrive.exe /background",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:09:35",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\mspaint.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "mspaint.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:10:10",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.3",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:10:45",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:11:20",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://www.google.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:11:55",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://teams.microsoft.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:12:30",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Users\\john\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "Teams.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:13:05",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "OneDrive.exe /background",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:13:40",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\System32\\mspaint.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "mspaint.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:14:15",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4624",
+        "Channel": "Security",
+        "LogonType": 2,
+        "Src_Ip": "192.168.0.1",
+        "Dst_Ip": "192.168.0.3",
+        "LogonProcess": "User32"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:14:50",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Windows\\Explorer.exe",
+        "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
+        "CommandLine": "C:\\Windows\\Explorer.exe",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:15:25",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://www.google.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      },
+      {
+        "TimeStamp": "2025-11-19T14:16:00",
+        "HostName": "WS-05",
+        "User": "john",
+        "EventID": "4688",
+        "Channel": "Security",
+        "Process_Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Parent_Image": "C:\\Windows\\Explorer.exe",
+        "CommandLine": "\\\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\\\" https://teams.microsoft.com",
+        "Src_Ip": "192.168.0.3",
+        "Dst_Ip": "192.168.0.5"
+      }
+    ]
+  }
+]
