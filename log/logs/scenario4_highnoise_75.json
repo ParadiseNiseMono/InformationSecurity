@@ -1,0 +1,726 @@
+[
+  {
+    "Name": "4-3透過regsvr32進行基於 DLL 的憑證竊取",
+    "EventID": "Multi",
+    "EventName": "內部管理帳號疑似利用 regsvr32/dllhost 進行 DLL 型憑證竊取",
+    "Description": "在多台工作站 WS-1～WS-5 上，偵測到來自同一來源 IP 192.168.10.22 的 it-admin 持續觸發 4688、4673、5156、4624 等事件",
+    "SourceIP": {
+      "IP": "10.10.5.21",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Outbound",
+      "Department": "Production"
+    },
+    "EventType": "Malicious Scan",
+    "Stage": 5,
+    "SolveType": "Firewall",
+    "SourceIPs": [
+      {
+        "IP": "10.10.5.21",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Inbound",
+        "Department": "Production"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-01-02T10:00:00",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 0"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:03",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 1"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:06",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 2"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:09",
+        "EventID": "4673",
+        "User": "it-admin",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 3"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:12",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 4"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:15",
+        "EventID": "4673",
+        "User": "it-admin",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 5"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:18",
+        "EventID": "4673",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 6"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:21",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 7"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:24",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 8"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:27",
+        "EventID": "4673",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 9"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:30",
+        "EventID": "4673",
+        "User": "it-admin",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 10"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:33",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 11"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:36",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 12"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:39",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 13"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:42",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 14"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:45",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 15"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:48",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 16"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:51",
+        "EventID": "4673",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 17"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:54",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 18"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:00:57",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 19"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:00",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 20"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:03",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 21"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:06",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 22"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:09",
+        "EventID": "4673",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 23"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:12",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 24"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:15",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 25"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:18",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "DLL Credential Harvesting step 26"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:21",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 27"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:24",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "regsvr32.exe",
+        "Description": "DLL Credential Harvesting step 28"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:27",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "DLL Credential Harvesting step 29"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:30",
+        "EventID": "5158",
+        "User": "user1",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "RuntimeBroker.exe",
+        "Description": "normal noise RuntimeBroker.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:33",
+        "EventID": "5158",
+        "User": "user2",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "RuntimeBroker.exe",
+        "Description": "normal noise RuntimeBroker.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:36",
+        "EventID": "4688",
+        "User": "finance_user",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OneDrive.exe",
+        "Description": "normal noise OneDrive.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:39",
+        "EventID": "4624",
+        "User": "finance_user",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "SearchApp.exe",
+        "Description": "normal noise SearchApp.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:42",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "Teams.exe",
+        "Description": "normal noise Teams.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:45",
+        "EventID": "4688",
+        "User": "user1",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "normal noise OUTLOOK.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:48",
+        "EventID": "4688",
+        "User": "user1",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OneDrive.exe",
+        "Description": "normal noise OneDrive.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:51",
+        "EventID": "4624",
+        "User": "user1",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "SearchApp.exe",
+        "Description": "normal noise SearchApp.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:54",
+        "EventID": "5158",
+        "User": "user2",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "normal noise dllhost.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:01:57",
+        "EventID": "5156",
+        "User": "user1",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "winlogon.exe",
+        "Description": "normal noise winlogon.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:00",
+        "EventID": "5156",
+        "User": "user2",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OneDrive.exe",
+        "Description": "normal noise OneDrive.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:03",
+        "EventID": "4688",
+        "User": "user1",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "Teams.exe",
+        "Description": "normal noise Teams.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:06",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "chrome.exe",
+        "Description": "normal noise chrome.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:09",
+        "EventID": "5156",
+        "User": "finance_user",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OneDrive.exe",
+        "Description": "normal noise OneDrive.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:12",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "normal noise svchost.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:15",
+        "EventID": "5158",
+        "User": "user2",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "SearchApp.exe",
+        "Description": "normal noise SearchApp.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:18",
+        "EventID": "4624",
+        "User": "user1",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "normal noise dllhost.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:21",
+        "EventID": "4624",
+        "User": "user1",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "winlogon.exe",
+        "Description": "normal noise winlogon.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:24",
+        "EventID": "4624",
+        "User": "user1",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "winlogon.exe",
+        "Description": "normal noise winlogon.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:27",
+        "EventID": "5158",
+        "User": "user1",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "chrome.exe",
+        "Description": "normal noise chrome.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:30",
+        "EventID": "4624",
+        "User": "user1",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "Teams.exe",
+        "Description": "normal noise Teams.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:33",
+        "EventID": "5158",
+        "User": "user2",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "chrome.exe",
+        "Description": "normal noise chrome.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:36",
+        "EventID": "5156",
+        "User": "user2",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "Teams.exe",
+        "Description": "normal noise Teams.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:39",
+        "EventID": "4624",
+        "User": "finance_user",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "normal noise OUTLOOK.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:42",
+        "EventID": "4624",
+        "User": "user2",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "winlogon.exe",
+        "Description": "normal noise winlogon.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:45",
+        "EventID": "4688",
+        "User": "user2",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "normal noise OUTLOOK.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:48",
+        "EventID": "5158",
+        "User": "user2",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "SearchApp.exe",
+        "Description": "normal noise SearchApp.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:51",
+        "EventID": "4688",
+        "User": "finance_user",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "normal noise OUTLOOK.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:54",
+        "EventID": "4624",
+        "User": "user1",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OneDrive.exe",
+        "Description": "normal noise OneDrive.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:02:57",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "normal noise EXCEL.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:00",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "SearchApp.exe",
+        "Description": "normal noise SearchApp.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:03",
+        "EventID": "4688",
+        "User": "user1",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "RuntimeBroker.exe",
+        "Description": "normal noise RuntimeBroker.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:06",
+        "EventID": "4624",
+        "User": "user2",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "winlogon.exe",
+        "Description": "normal noise winlogon.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:09",
+        "EventID": "4624",
+        "User": "user1",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "dllhost.exe",
+        "Description": "normal noise dllhost.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:12",
+        "EventID": "5156",
+        "User": "user1",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "normal noise EXCEL.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:15",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "normal noise EXCEL.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:18",
+        "EventID": "5158",
+        "User": "user2",
+        "HostName": "WS-4",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "Teams.exe",
+        "Description": "normal noise Teams.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:21",
+        "EventID": "4688",
+        "User": "user1",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "normal noise EXCEL.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:24",
+        "EventID": "4624",
+        "User": "user2",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OneDrive.exe",
+        "Description": "normal noise OneDrive.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:27",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "normal noise OUTLOOK.EXE"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:30",
+        "EventID": "4688",
+        "User": "user2",
+        "HostName": "WS-5",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "Teams.exe",
+        "Description": "normal noise Teams.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:33",
+        "EventID": "5158",
+        "User": "finance_user",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "normal noise svchost.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:36",
+        "EventID": "5156",
+        "User": "user2",
+        "HostName": "WS-1",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "normal noise svchost.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:39",
+        "EventID": "4624",
+        "User": "finance_user",
+        "HostName": "WS-3",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "svchost.exe",
+        "Description": "normal noise svchost.exe"
+      },
+      {
+        "TimeStamp": "2025-01-02T10:03:42",
+        "EventID": "5156",
+        "User": "user2",
+        "HostName": "WS-2",
+        "SourceIP": "192.168.10.22",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "normal noise OUTLOOK.EXE"
+      }
+    ],
+    "AttackStaff": {
+      "DataTable": "/Script/Engine.DataTable'/Game/Company/Staff/DT_Staff.DT_Staff'",
+      "RowName": "hank"
+    }
+  }
+]

