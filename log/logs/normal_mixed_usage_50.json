@@ -1,4 +1,49 @@
-[
+[{
+		"Name": "3-2疑似異常跨工作站登入模式",
+		"EventID": "Multi",
+		"EventName": "跨主機登入模式異常",
+		"Description": "偵測到多位使用者從不同工作站大量登入同一目標主機",
+		"SourceIP":
+		{
+			"IP": "192.168.0.1",
+			"Source":
+			{
+				"IsFromCompany?": true
+			},
+			"BeenBlocking?": false,
+			"isDanger?": true,
+			"Port": "N/A",
+			"Index": 0,
+			"Direction": "Inbound",
+			"Department": "Production"
+		},
+		"EventType": "Hacked",
+		"Stage": 3,
+		"SolveType": "ChangeCharacter",
+		"SourceIPs": [
+			{
+				"IP": "192.168.0.1",
+				"Source":
+				{
+					"IsFromCompany?": true
+				},
+				"BeenBlocking?": false,
+				"isDanger?": true,
+				"Port": "N/A",
+				"Index": 0,
+				"Direction": "Inbound",
+				"Department": "Production"
+			}
+		],
+		"AttackTimes": 1,
+		"CostMoney": 0,
+		"CostPlayerCreditInCompany": 0,
+		"GainCredit": 0,
+		"Commentary": "",
+		"BadResultText": "",
+		"GoodResultText": "",
+		"AttackStep": 1,
+		"S_EventJsonCode": [
   {
     "TimeStamp": "2025-11-20T10:00:00",
     "HostName": "WS-01",
@@ -586,4 +631,11 @@
     "Parent_Image": "C:\\Windows\\System32\\userinit.exe",
     "CommandLine": "C:\\Windows\\Explorer.exe"
   }
+],
+		"AttackStaff":
+		{
+			"DataTable": "/Script/Engine.DataTable'/Game/Company/Staff/DT_Staff.DT_Staff'",
+			"RowName": "alice"
+		}
+	}
 ]

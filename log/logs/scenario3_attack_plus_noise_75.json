@@ -1,0 +1,707 @@
+[
+  {
+    "Name": "5-2服務二進位檔案劫持以實現權限提升",
+    "EventID": "Multi",
+    "EventName": "疑似利用弱權限服務竄改服務程式以取得 SYSTEM 高權限",
+    "Description": "測到 it-admin 自來源 IP 192.168.10.44 透過 RDP 登入 WS-20 後，使用 sc.exe 建立名為 vulnService 的服務。",
+    "SourceIP": {
+      "IP": "10.10.5.21",
+      "Source": {
+        "IsFromCompany?": true
+      },
+      "BeenBlocking?": false,
+      "isDanger?": true,
+      "Port": "N/A",
+      "Index": 0,
+      "Direction": "Outbound",
+      "Department": "Production"
+    },
+    "EventType": "Malicious Scan",
+    "Stage": 5,
+    "SolveType": "Firewall",
+    "SourceIPs": [
+      {
+        "IP": "10.10.5.21",
+        "Source": {
+          "IsFromCompany?": true
+        },
+        "BeenBlocking?": false,
+        "isDanger?": true,
+        "Port": "N/A",
+        "Index": 0,
+        "Direction": "Inbound",
+        "Department": "Production"
+      }
+    ],
+    "AttackTimes": 1,
+    "CostMoney": 0,
+    "CostPlayerCreditInCompany": 0,
+    "GainCredit": 0,
+    "Commentary": "",
+    "BadResultText": "",
+    "GoodResultText": "",
+    "AttackStep": 1,
+    "S_EventJsonCode": [
+      {
+        "TimeStamp": "2025-01-04T12:00:00",
+        "EventID": "4624",
+        "LogonType": 10,
+        "User": "it-admin",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.10.44",
+        "Process_Image": "mstsc.exe",
+        "Description": "Initial RDP"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:03",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-20",
+        "Process_Image": "sc.exe",
+        "CommandLine": "sc create vulnService binPath= \"C:\\Program Files\\Vuln\\vulnsvc.exe\"",
+        "Description": "Create weak-privilege service"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:06",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-20",
+        "Process_Image": "copy.exe",
+        "CommandLine": "copy malicious_helper.dll \"C:\\Program Files\\Vuln\\vulnsvc.exe\"",
+        "Description": "Replace service binary with malicious helper (simulated) - file operation"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:09",
+        "EventID": "7045",
+        "User": "it-admin",
+        "HostName": "WS-20",
+        "Service_Name": "vulnService",
+        "Service_FileName": "C:\\Program Files\\Vuln\\vulnsvc.exe",
+        "Description": "Service registered/installed"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:12",
+        "EventID": "4688",
+        "User": "NT AUTHORITY\\SYSTEM",
+        "HostName": "WS-20",
+        "Process_Image": "services.exe",
+        "CommandLine": "vulnsvc.exe --start",
+        "Description": "Service started as SYSTEM"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:15",
+        "EventID": "4672",
+        "User": "NT AUTHORITY\\SYSTEM",
+        "HostName": "WS-20",
+        "Description": "SYSTEM obtained special privileges after service start"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:18",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-23",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:21",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-22",
+        "Process_Image": "cmd.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:24",
+        "EventID": "4624",
+        "User": "user5",
+        "HostName": "WS-21",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:27",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-21",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:30",
+        "EventID": "4624",
+        "User": "user6",
+        "HostName": "WS-23",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:33",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-24",
+        "Process_Image": "tasklist.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:36",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-23",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:39",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-23",
+        "Process_Image": "cmd.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:42",
+        "EventID": "5156",
+        "User": "user5",
+        "HostName": "WS-23",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:45",
+        "EventID": "4624",
+        "User": "user5",
+        "HostName": "WS-23",
+        "Process_Image": "cmd.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:48",
+        "EventID": "5156",
+        "User": "user6",
+        "HostName": "WS-21",
+        "Process_Image": "cmd.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:51",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-23",
+        "Process_Image": "tasklist.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:54",
+        "EventID": "5156",
+        "User": "user5",
+        "HostName": "WS-23",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:00:57",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-22",
+        "Process_Image": "cmd.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:00",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-22",
+        "Process_Image": "cmd.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:03",
+        "EventID": "4624",
+        "User": "it-admin",
+        "HostName": "WS-23",
+        "Process_Image": "cmd.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:06",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-22",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:09",
+        "EventID": "5156",
+        "User": "it-admin",
+        "HostName": "WS-20",
+        "Process_Image": "net.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:12",
+        "EventID": "4688",
+        "User": "it-admin",
+        "HostName": "WS-20",
+        "Process_Image": "tasklist.exe",
+        "Description": "Post-service execution activity"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:15",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.32",
+        "Process_Image": "chrome.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:18",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.51",
+        "Process_Image": "RuntimeBroker.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:21",
+        "EventID": "4688",
+        "User": "accting_user",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.49",
+        "Process_Image": "chrome.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:24",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.39",
+        "Process_Image": "svchost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:27",
+        "EventID": "5156",
+        "User": "accting_user",
+        "HostName": "WS-23",
+        "SourceIP": "192.168.12.27",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:30",
+        "EventID": "4624",
+        "User": "accting_user",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.8",
+        "Process_Image": "Teams.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:33",
+        "EventID": "4624",
+        "User": "accting_user",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.24",
+        "Process_Image": "SearchApp.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:36",
+        "EventID": "5158",
+        "User": "accting_user",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.6",
+        "Process_Image": "SearchApp.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:39",
+        "EventID": "5156",
+        "User": "user5",
+        "HostName": "WS-23",
+        "SourceIP": "192.168.12.54",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:42",
+        "EventID": "4624",
+        "User": "user6",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.42",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:45",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.48",
+        "Process_Image": "SearchApp.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:48",
+        "EventID": "5156",
+        "User": "accting_user",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.51",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:51",
+        "EventID": "5158",
+        "User": "user6",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.19",
+        "Process_Image": "RuntimeBroker.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:54",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.58",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:01:57",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.41",
+        "Process_Image": "dllhost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:00",
+        "EventID": "5156",
+        "User": "user5",
+        "HostName": "WS-23",
+        "SourceIP": "192.168.12.56",
+        "Process_Image": "RuntimeBroker.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:03",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.24",
+        "Process_Image": "Teams.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:06",
+        "EventID": "5156",
+        "User": "user6",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.46",
+        "Process_Image": "Teams.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:09",
+        "EventID": "4624",
+        "User": "accting_user",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.7",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:12",
+        "EventID": "5158",
+        "User": "user6",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.50",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:15",
+        "EventID": "5158",
+        "User": "accting_user",
+        "HostName": "WS-23",
+        "SourceIP": "192.168.12.30",
+        "Process_Image": "svchost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:18",
+        "EventID": "4624",
+        "User": "user6",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.27",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:21",
+        "EventID": "5156",
+        "User": "accting_user",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.25",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:24",
+        "EventID": "5156",
+        "User": "user6",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.23",
+        "Process_Image": "RuntimeBroker.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:27",
+        "EventID": "5158",
+        "User": "user6",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.18",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:30",
+        "EventID": "4624",
+        "User": "accting_user",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.22",
+        "Process_Image": "chrome.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:33",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.49",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:36",
+        "EventID": "5156",
+        "User": "accting_user",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.50",
+        "Process_Image": "SearchApp.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:39",
+        "EventID": "5156",
+        "User": "user5",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.20",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:42",
+        "EventID": "5156",
+        "User": "user5",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.2",
+        "Process_Image": "SearchApp.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:45",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.5",
+        "Process_Image": "SearchApp.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:48",
+        "EventID": "5156",
+        "User": "accting_user",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.42",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:51",
+        "EventID": "4624",
+        "User": "user5",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.20",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:54",
+        "EventID": "5158",
+        "User": "user6",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.13",
+        "Process_Image": "svchost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:02:57",
+        "EventID": "5156",
+        "User": "user6",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.54",
+        "Process_Image": "chrome.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:00",
+        "EventID": "5158",
+        "User": "user6",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.38",
+        "Process_Image": "svchost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:03",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.21",
+        "Process_Image": "chrome.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:06",
+        "EventID": "4688",
+        "User": "user5",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.50",
+        "Process_Image": "dllhost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:09",
+        "EventID": "4688",
+        "User": "accting_user",
+        "HostName": "WS-23",
+        "SourceIP": "192.168.12.30",
+        "Process_Image": "EXCEL.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:12",
+        "EventID": "5156",
+        "User": "accting_user",
+        "HostName": "WS-23",
+        "SourceIP": "192.168.12.21",
+        "Process_Image": "explorer.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:15",
+        "EventID": "4624",
+        "User": "accting_user",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.50",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:18",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.12",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:21",
+        "EventID": "4688",
+        "User": "accting_user",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.12",
+        "Process_Image": "svchost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:24",
+        "EventID": "5158",
+        "User": "user6",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.32",
+        "Process_Image": "Teams.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:27",
+        "EventID": "4624",
+        "User": "user5",
+        "HostName": "WS-22",
+        "SourceIP": "192.168.12.47",
+        "Process_Image": "Teams.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:30",
+        "EventID": "5158",
+        "User": "user5",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.18",
+        "Process_Image": "explorer.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:33",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.36",
+        "Process_Image": "OUTLOOK.EXE",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:36",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-21",
+        "SourceIP": "192.168.12.6",
+        "Process_Image": "svchost.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:39",
+        "EventID": "4688",
+        "User": "user6",
+        "HostName": "WS-24",
+        "SourceIP": "192.168.12.49",
+        "Process_Image": "explorer.exe",
+        "Description": "Normal background task"
+      },
+      {
+        "TimeStamp": "2025-01-04T12:03:42",
+        "EventID": "5156",
+        "User": "user6",
+        "HostName": "WS-20",
+        "SourceIP": "192.168.12.31",
+        "Process_Image": "Teams.exe",
+        "Description": "Normal background task"
+  }
+		],
+		"AttackStaff":
+		{
+			"DataTable": "/Script/Engine.DataTable'/Game/Company/Staff/DT_Staff.DT_Staff'",
+			"RowName": "alice"
+		}
+	}
+]
